@@ -1,0 +1,136 @@
+{
+   "products": {
+      "properties": {
+         "id": {
+            "type": "text"
+         },
+         "name": {
+            "type": "keyword",
+            "fields": {
+               "nori": {
+                  "type": "text",
+                  "analyzer": "nori_analyzer"
+               },
+               "ngram": {
+                  "type": "text",
+                  "analyzer": "ngram_analyzer"
+               }
+             }
+         },
+         "meta_title": {
+            "type": "keyword",
+            "fields": {
+               "nori": {
+                  "type": "text",
+                  "analyzer": "nori_analyzer"
+               },
+               "ngram": {
+                  "type": "text",
+                  "analyzer": "ngram_analyzer"
+               }
+             }
+         },
+         "meta_desc": {
+            "type": "keyword",
+            "fields": {
+               "nori": {
+                  "type": "text",
+                  "analyzer": "nori_analyzer"
+               },
+               "ngram": {
+                  "type": "text",
+                  "analyzer": "ngram_analyzer"
+               }
+             }
+         },
+         "sku": {
+            "type": "text",
+            "analyzer": "keyword",
+            "fields": {
+               "raw": { 
+                 "type":  "keyword"
+               }
+             }
+         },
+         "regular_price_amt": {
+            "type": "long"
+         },
+         "sale_price_amt": {
+            "type": "long"
+         },
+         "date_placed": {
+            "type": "date"
+         },
+         "date_paid": {
+            "type": "date"
+         },
+         "date_created": {
+            "type": "date"
+         },
+         "date_updated": {
+            "type": "date"
+         },
+         "date_stock_expected": {
+            "type": "date"
+         },
+         "date_sale_from": {
+            "type": "date"
+         },
+         "date_sale_to": {
+            "type": "date"
+         },
+         "is_enabled": {
+            "type": "boolean"
+         },
+         "is_discontinued": {
+            "type": "boolean"
+         },
+         "is_stock_preorder": {
+            "type": "boolean"
+         },
+         "is_stock_backorder": {
+            "type": "boolean"
+         },
+         "is_taxfree": {
+            "type": "boolean"
+         },
+         "description": {
+            "type": "keyword",
+            "fields": {
+               "nori": {
+                  "type": "text",
+                  "analyzer": "nori_analyzer"
+               }
+             }
+         },
+         "attributes": {
+            "type": "nested",
+            "properties": {
+               "name": {
+                  "type": "text",
+                  "analyzer": "nori_analyzer"
+               },
+               "value": {
+                  "type": "text",
+                  "analyzer": "nori_analyzer"
+               }
+            }
+         },
+         "options": {
+            "type": "nested"
+         },
+         "variants": {
+            "type": "nested"
+         },
+         "images": {
+            "type": "nested"
+         },
+         "category_join": {
+            "type": "join",
+            "relations": {
+               "category": "product"
+            }
+         }
+      }
+   }
+}

@@ -1,0 +1,93 @@
+{
+    "analysis":{
+       "analyzer":{
+          "nori_analyzer":{
+             "type":"custom",
+             "tokenizer":"nori_tokenizer",
+             "filter":[
+                "synonym",
+                "lowercase",
+                "trim",
+                "nori_posfilter",
+                "nori_readingform"
+             ]
+          },
+          "ngram_analyzer":{
+             "type":"custom",
+             "tokenizer":"ngram_tokenizer"
+          },
+          "icu_analyzer":{
+             "type":"custom",
+             "tokenizer":"icu_tokenizer",
+             "filter":[
+                "icu_folding"
+             ],
+             "char_filter":[
+                "nfd_normalizer"
+             ]
+          }
+       },
+       "tokenizer":{
+          "nori_tokenizer":{
+             "type":"nori_tokenizer",
+             "decompound_mode":"discard",
+             "user_dictionary":"medi_dictionary.txt"
+          },
+          "ngram_tokenizer": {
+            "type": "ngram",
+            "min_gram": 2,
+            "max_gram": 2,
+            "token_chars": [
+              "letter",
+              "digit"
+            ]
+          }
+       },
+       "char_filter":{
+          "nfd_normalizer":{
+             "mode":"decompose",
+             "name":"nfc",
+             "type":"icu_normalizer"
+          }
+       },
+       "filter":{
+         "synonym": {
+            "type" : "synonym", 
+            "synonyms_path" : "medi_synonyms.txt"
+          },
+          "edge_ngram_filter_front": {
+            "type": "edgeNGram", "min_gram": "2", "max_gram": "10", "side": "front"
+          },
+          "edge_ngram_filter_back": {
+            "type": "edgeNGram", "min_gram": "2", "max_gram": "10", "side": "back"
+          },
+          "nori_posfilter":{
+             "type":"nori_part_of_speech",
+             "stoptags":[
+                "E",
+                "IC",
+                "J",
+                "MAG",
+                "NA",
+                "NR",
+                "SC",
+                "SE",
+                "SH",
+                "SP",
+                "SSC",
+                "SSO",
+                "SY",
+                "UNA",
+                "UNKNOWN",
+                "VCP",
+                "VSV",
+                "XPN",
+                "XR",
+                "XSA",
+                "XSN",
+                "XSV"
+             ]
+          }
+       }
+    }
+ }

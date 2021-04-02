@@ -1,0 +1,14 @@
+# package directories
+node_modules
+
+logs
+
+# Serverless directories
+.serverless
+.vscode
+export
+dist
+
+devHandlerMarket_local.js
+serverless.yml.stg
+serverless.yml.prd

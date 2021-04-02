@@ -1,0 +1,23 @@
+{
+  "name": "marketdb-etl-es",
+  "version": "1.0.0",
+  "description": "",
+  "main": "devHandler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "async.queue": "^0.5.2",
+    "aws-sdk": "^2.810.0",
+    "bunyan": "^1.8.14",
+    "date-fns": "^2.16.1",
+    "elasticsearch": "^16.7.2",
+    "lodash": "^4.17.20",
+    "sanitize-html": "^2.2.0",
+    "serverless-plugin-include-dependencies": "^4.1.0"
+  }
+}

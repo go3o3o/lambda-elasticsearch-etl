@@ -1,0 +1,35 @@
+service: SEARCH-ETL
+
+provider:
+  name: aws
+  runtime: nodejs12.x 
+  region: ap-northeast-2
+  stage: stg
+  deploymentBucket:
+    name: medistream-services-deployment
+  role: arn:aws:iam::${account}:role/searchETLRole
+package:
+  exclude:
+    - node_modules/** # no need to add this yourself, this plugin does it for you
+plugins:
+  - serverless-plugin-include-dependencies
+
+functions:
+  ES-market:
+    handler: handlerMarket.executeETL
+    memorySize: 512
+    timeout: 600 
+    role: arn:aws:iam::${account}:role/searchETLRole
+    vpc:
+      securityGroupIds:
+        - sg-a
+        - sg-b
+      subnetIds:
+        - subnet-a
+        - subnet-b
+        - subnet-c
+  ES-community:
+    handler: handlerCommunity.executeETL
+    memorySize: 512
+    timeout: 30
+    role: arn:aws:iam::${account}:role/searchETLRole
