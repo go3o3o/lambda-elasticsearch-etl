@@ -7,9 +7,7 @@
              "filter":[
                 "synonym",
                 "lowercase",
-                "trim",
-                "nori_posfilter",
-                "nori_readingform"
+                "nori_posfilter"
              ]
           },
           "ngram_analyzer":{
@@ -35,8 +33,8 @@
           },
           "ngram_tokenizer": {
             "type": "ngram",
-            "min_gram": 2,
-            "max_gram": 2,
+            "min_gram": 3,
+            "max_gram": 3,
             "token_chars": [
               "letter",
               "digit"
@@ -54,12 +52,6 @@
          "synonym": {
             "type" : "synonym", 
             "synonyms_path" : "medi_synonyms.txt"
-          },
-          "edge_ngram_filter_front": {
-            "type": "edgeNGram", "min_gram": "2", "max_gram": "10", "side": "front"
-          },
-          "edge_ngram_filter_back": {
-            "type": "edgeNGram", "min_gram": "2", "max_gram": "10", "side": "back"
           },
           "nori_posfilter":{
              "type":"nori_part_of_speech",

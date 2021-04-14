@@ -4,6 +4,7 @@ const mapper = (value) => {
   const now = new Date()
   // const ret = {}
   const ret = value
+  ret.score = undefined
 
   const category_id = nullProc(value.category_id, 'id')
   const category_ids = value.category_ids.map((category_id) => nullProc(category_id, 'id'))
@@ -84,6 +85,7 @@ const mapper = (value) => {
   let item_kind = ''
   let item_origin = ''
   let item_weight = ''
+  let author = ''
 
   const is_taxfree = value.category_ids.map((cId) => nullProc(cId, 'id')).filter((id) => id === '5f9a5f1b51203163343206bd').length === 1
   ret.is_taxfree = is_taxfree
@@ -113,6 +115,9 @@ const mapper = (value) => {
     if (item.name === '용량' || item.name === '중량') {
       item_weight = item.value
     }
+    if (item.name === '저자') {
+      author = item.value
+    }
     return {
       name: nullProc(item.name, 'string'),
       value: nullProc(item.value, 'string'),
@@ -124,6 +129,7 @@ const mapper = (value) => {
   ret.item_origin = item_origin
   ret.item_kind = item_kind
   ret.item_weight = item_weight
+  ret.author = author
 
   ret.attributes = attributes
 

@@ -20,6 +20,9 @@
          "meta_title": {
             "type": "keyword",
             "fields": {
+               "raw": {
+                  "type": "keyword"
+               },
                "nori": {
                   "type": "text",
                   "analyzer": "nori_analyzer"
@@ -123,6 +126,9 @@
             "type": "nested"
          },
          "images": {
+            "type": "nested"
+         },
+         "score": {
             "type": "nested"
          },
          "category_join": {
